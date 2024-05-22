@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .todo-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            margin-top: 0;
+        }
+        
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        li:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+        }
+        
+        li.completed span {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+        
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+    </style>
+    
+
+    <div class="todo-container">
+        <h2>TODO list (Yapılacak Listesi)</h2>
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Eklemek için yazınız...">
+            <button id="addTaskBtn">+ Ekle</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        document.getElementById('addTaskBtn').addEventListener('click', addTask);
+
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskText = taskInput.value.trim();
+    
+    if (taskText !== '') {
+        const taskList = document.getElementById('taskList');
+        const li = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', toggleTask);
+
+        const span = document.createElement('span');
+        span.textContent = taskText;
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        taskList.appendChild(li);
+
+        taskInput.value = '';
+        taskInput.focus();
+    }
+}
+
+function toggleTask(event) {
+    const checkbox = event.target;
+    const li = checkbox.parentElement;
+    
+    if (checkbox.checked) {
+        li.classList.add('completed');
+    } else {
+        li.classList.remove('completed');
+    }
+}
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <script src="scripts.js"></script>
+    sc
+</body>
+</html>

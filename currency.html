@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currency</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody id="currencyTableBody">
+        </tbody>
+    </table>
+    
+    <script>
+        const currencies = [
+            { code: "USD", name: "US Dollar", symbol: "$" },
+            { code: "EUR", name: "Euro", symbol: "€" },
+            { code: "JPY", name: "Japanese Yen", symbol: "¥" },
+            { code: "GBP", name: "British Pound", symbol: "£" },
+            { code: "AUD", name: "Australian Dollar", symbol: "A$" },
+            { code: "CHF", name: "Swiss Franc", symbol: "CHF" },
+            { code: "CNY", name: "Chinese Yuan Renminbi", symbol: "¥" },
+            { code: "CAD", name: "Canadian Dollar", symbol: "$" },
+            { code: "NZD", name: "New Zealand Dollar", symbol: "$" },
+            { code: "SEK", name: "Swedish Krona", symbol: "kr" },
+        ];
+        const tbody=document.getElementById("currencyTableBody")
+        var sonuc=""
+        currencies.forEach(currency=>{
+            const satir="<tr>"+ "<td>"+currency.code+"</td>"+"<td>"+currency.name+"</td>"+"<td>"+currency.symbol+"</td>" +"</tr>"
+            sonuc=sonuc+satir 
+            
+        })
+        console.log(sonuc)
+        tbody.innerHTML=sonuc
+
+    
+        
+       
+    </script>
+    
+
+    
+
+
+
+
+
+
+
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
